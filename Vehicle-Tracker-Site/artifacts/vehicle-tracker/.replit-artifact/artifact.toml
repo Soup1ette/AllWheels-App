@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Vehicle Tracker Landing Page"
+description = "A landing/marketing page for a vehicle tracker app. Showcases key features like real-time GPS tracking, geofencing alerts, fleet management, trip history, and live map views. Designed to convert visitors into users."
+version = "1.0.0"
+id = "artifacts/vehicle-tracker"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19654
+
+[services.development]
+run = "pnpm --filter @workspace/vehicle-tracker run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vehicle-tracker", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/vehicle-tracker/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19654"
+BASE_PATH = "/"
