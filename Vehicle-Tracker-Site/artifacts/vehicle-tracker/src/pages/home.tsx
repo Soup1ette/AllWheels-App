@@ -10,6 +10,14 @@ import logoSrc from '@assets/AW_app_logo_1785844987626.png';
 import dashboardImg from '@assets/generated_images/dashboard-ui_2.jpg';
 import cleanVehicleImg from '@assets/generated_images/clean-vehicle_3.jpg';
 import fuelStatsImg from '@assets/generated_images/fuel-stats_2.jpg';
+import betaQrImg from '@assets/generated_images/allwheels-beta-qr.png';
+
+const BETA_URL = 'https://all-wheels-mobile--AllWheels.replit.app';
+
+function scrollToBeta(e: React.MouseEvent) {
+  e.preventDefault();
+  document.getElementById('beta')?.scrollIntoView({ behavior: 'smooth' });
+}
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -56,7 +64,7 @@ export default function Home() {
             <a href="#fuel" className="hover:text-primary transition-colors">Fuel Tracking</a>
           </div>
           <div className="flex items-center gap-4">
-            <button className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(59,127,235,0.4)]">
+            <button onClick={scrollToBeta} className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(59,127,235,0.4)]">
               Get the App
             </button>
           </div>
@@ -91,7 +99,7 @@ export default function Home() {
             </motion.p>
             
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg overflow-hidden transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_8px_30px_rgba(59,127,235,0.3)]">
+              <button onClick={scrollToBeta} className="group relative inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg overflow-hidden transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_8px_30px_rgba(59,127,235,0.3)]">
                 <Download className="w-5 h-5" />
                 Download AllWheels
               </button>
@@ -274,11 +282,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-32 px-6 relative overflow-hidden text-center">
+      {/* Beta / Final CTA */}
+      <section id="beta" className="py-32 px-6 relative overflow-hidden text-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"></div>
         
         <div className="max-w-3xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-sm font-medium tracking-wide mb-6"
+          >
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Early beta
+          </motion.div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -294,23 +312,28 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="text-xl text-muted-foreground mb-10 leading-relaxed"
           >
-            Join thousands of owners who trust AllWheels to keep their vehicles running smoothly. No subscriptions, just better ownership.
+            AllWheels is currently in beta. Scan the code below to try it now — no App Store or Play Store listing yet, but you can get hands-on with the real app today.
           </motion.p>
+
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row justify-center gap-4"
+            className="flex flex-col items-center gap-6"
           >
-            <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary/90 transition-transform hover:scale-105 active:scale-95 shadow-lg flex items-center justify-center gap-2">
-              <Download className="w-5 h-5" />
-              Download on iOS
-            </button>
-            <button className="px-8 py-4 rounded-xl font-semibold text-lg border border-white/20 hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
-              <Download className="w-5 h-5" />
-              Download on Android
-            </button>
+            <div className="bg-white p-5 rounded-2xl shadow-xl">
+              <img src={betaQrImg} alt="Scan to try the AllWheels beta" className="w-48 h-48 md:w-56 md:h-56" />
+            </div>
+            <p className="text-sm text-muted-foreground">Scan with your phone's camera to try the beta</p>
+            <a
+              href={BETA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary font-semibold hover:underline break-all"
+            >
+              {BETA_URL.replace('https://', '')}
+            </a>
           </motion.div>
         </div>
       </section>
@@ -333,15 +356,15 @@ export default function Home() {
               <li><a href="#fuel" className="hover:text-primary transition-colors">Fuel Tracking</a></li>
               <li><a href="#maintenance" className="hover:text-primary transition-colors">Maintenance Reminders</a></li>
               <li><a href="#features" className="hover:text-primary transition-colors">Multi-Vehicle Support</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Receipt Storage</a></li>
+              <li><a href="#features" className="hover:text-primary transition-colors">Receipt Storage</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Legal</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contact Support</a></li>
+              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Support</Link></li>
             </ul>
           </div>
         </div>
