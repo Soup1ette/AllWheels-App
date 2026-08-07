@@ -85,6 +85,10 @@ export function PrivacyPolicyPage() {
           with a personal account. This may change as the app develops toward a public release,
           and this policy will be updated if it does.
         </p>
+        <p>
+          AllWheels is not directed at children under 13, and we do not knowingly collect
+          information from them.
+        </p>
       </Section>
 
       <Section heading="Third-Party Sharing">
@@ -97,10 +101,6 @@ export function PrivacyPolicyPage() {
           made by Expo, which facilitates loading the app onto your device. Expo's own handling of
           data related to that delivery process is governed by Expo's privacy policy, not ours.
         </p>
-      </Section>
-
-      <Section heading="Children's Privacy">
-        <p>AllWheels is not directed at children under 13, and we do not knowingly collect information from them.</p>
       </Section>
 
       <Section heading="Changes to This Policy">
