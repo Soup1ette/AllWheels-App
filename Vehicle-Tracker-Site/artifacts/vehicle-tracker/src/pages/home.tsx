@@ -295,11 +295,10 @@ export default function Home() {
             <p className="text-lg text-muted-foreground">Every vehicle in your garage gets its own identity — photos, a profile picture, a name you choose, and a full history you can take with you.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: ImageIcon, title: 'Photo Gallery', desc: 'Add photos of your vehicle to build a visual history alongside its records.' },
-              { icon: Camera, title: 'Profile Picture', desc: "Set a photo as your vehicle's profile picture so it's easy to spot in the garage." },
-              { icon: PenLine, title: 'Custom Naming', desc: 'Rename any vehicle whenever you like — no more "2019 Civic #2."' },
+              { icon: PenLine, title: 'Personalization', desc: 'Set a profile picture and give each vehicle a name you actually chose — no more "2019 Civic #2."' },
               { icon: FileDown, title: 'Export History', desc: 'Download your full maintenance history anytime — handy for resale or warranty claims.' }
             ].map((item, i) => (
               <motion.div 
