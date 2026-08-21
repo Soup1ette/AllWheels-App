@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   Droplet, TrendingUp, Car, Bell, Wrench, 
-  Receipt, ArrowRight, CheckCircle2, Download
+  Receipt, ArrowRight, CheckCircle2, Download,
+  Camera, ImageIcon, PenLine, FileDown
 } from 'lucide-react';
 import { Link } from 'wouter';
 
@@ -62,6 +63,7 @@ export default function Home() {
             <a href="#features" className="hover:text-primary transition-colors">Features</a>
             <a href="#maintenance" className="hover:text-primary transition-colors">Maintenance</a>
             <a href="#fuel" className="hover:text-primary transition-colors">Fuel Tracking</a>
+            <a href="#gallery" className="hover:text-primary transition-colors">Gallery</a>
           </div>
           <div className="flex items-center gap-4">
             <button onClick={scrollToBeta} className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(59,127,235,0.4)]">
@@ -282,6 +284,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gallery & Customization */}
+      <section id="gallery" className="py-24 px-6 relative border-t border-white/5 bg-secondary/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 text-primary font-medium text-sm mb-4">
+              <Camera className="w-4 h-4" /> MAKE IT YOURS
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">More than a spreadsheet.</h2>
+            <p className="text-lg text-muted-foreground">Every vehicle in your garage gets its own identity — photos, a profile picture, a name you choose, and a full history you can take with you.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: ImageIcon, title: 'Photo Gallery', desc: 'Add photos of your vehicle to build a visual history alongside its records.' },
+              { icon: Camera, title: 'Profile Picture', desc: "Set a photo as your vehicle's profile picture so it's easy to spot in the garage." },
+              { icon: PenLine, title: 'Custom Naming', desc: 'Rename any vehicle whenever you like — no more "2019 Civic #2."' },
+              { icon: FileDown, title: 'Export History', desc: 'Download your full maintenance history anytime — handy for resale or warranty claims.' }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-colors"
+              >
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                  <item.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Beta / Final CTA */}
       <section id="beta" className="py-32 px-6 relative overflow-hidden text-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"></div>
@@ -356,6 +395,7 @@ export default function Home() {
               <li><a href="#fuel" className="hover:text-primary transition-colors">Fuel Tracking</a></li>
               <li><a href="#maintenance" className="hover:text-primary transition-colors">Maintenance Reminders</a></li>
               <li><a href="#features" className="hover:text-primary transition-colors">Multi-Vehicle Support</a></li>
+              <li><a href="#gallery" className="hover:text-primary transition-colors">Photo Gallery</a></li>
               <li><a href="#features" className="hover:text-primary transition-colors">Receipt Storage</a></li>
             </ul>
           </div>
