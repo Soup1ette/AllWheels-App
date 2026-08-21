@@ -298,7 +298,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: ImageIcon, title: 'Photo Gallery', desc: 'Add photos of your vehicle to build a visual history alongside its records.' },
-              { icon: PenLine, title: 'Personalization', desc: 'Set a profile picture and give each vehicle a name you actually chose — no more "2019 Civic #2."' },
+              { icon: PenLine, title: 'Personalization', desc: 'Set a profile picture and give each vehicle a name of your choosing.' },
               { icon: FileDown, title: 'Export History', desc: 'Download your full maintenance history anytime — handy for resale or warranty claims.' }
             ].map((item, i) => (
               <motion.div 
