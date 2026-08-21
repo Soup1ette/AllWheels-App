@@ -214,7 +214,7 @@ export default function Home() {
                     className="flex items-start gap-4"
                   >
                     <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
-                    <span className="text-foreground">{text}</span>
+                    <span className="text-foreground/85 font-medium">{text}</span>
                   </motion.li>
                 ))}
               </ul>
