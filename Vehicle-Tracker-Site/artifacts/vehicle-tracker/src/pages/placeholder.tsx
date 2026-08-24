@@ -84,14 +84,18 @@ export function PrivacyPolicyPage() {
         </p>
       </Section>
 
-      <Section heading="Accounts & Cloud Storage">
+      <Section heading="Accounts & Cloud Backup">
         <p>
-          AllWheels uses accounts (email and password) so you can sign in. Account
-          data is handled through Supabase, our backend and database provider — Supabase stores
-          your account credentials securely on our behalf, and we don't have access to your raw
-          password. As the app develops, vehicle and maintenance data may also be stored in this
-          same cloud infrastructure tied to your account, rather than only on your device; we'll
-          keep this section current as that evolves.
+          AllWheels stores your vehicle, fuel, and maintenance data locally on your device by
+          default. If you create an account, you can optionally back up this data to the cloud —
+          this uploads a copy of your local data to our Supabase-hosted database so you can
+          restore it later, such as on a new device. This only happens when you choose to back up
+          or restore; it isn't a continuous or automatic background sync.
+        </p>
+        <p>
+          Account credentials (your email and password) are handled through Supabase, our backend
+          and authentication provider — Supabase stores this securely on our behalf, and we don't
+          have access to your raw password.
         </p>
         <p>
           AllWheels is not directed at children under 13, and we do not knowingly collect
