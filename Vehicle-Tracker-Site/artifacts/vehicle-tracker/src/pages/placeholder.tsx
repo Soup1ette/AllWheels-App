@@ -68,17 +68,17 @@ export function PrivacyPolicyPage() {
 
       <Section heading="Information We Collect">
         <p>
-          <strong className="text-white">Account information.</strong> To sign up, you provide an
+          Account information. To sign up, you provide an
           email address and password. We use this to create and secure your account, and to send
           you a confirmation email when you sign up.
         </p>
         <p>
-          <strong className="text-white">Vehicle & maintenance data.</strong> Information you
+          Vehicle & maintenance data. Information you
           enter into the app yourself — fuel logs, mileage, maintenance records, and any receipts
           or documents you add.
         </p>
         <p>
-          <strong className="text-white">Location data.</strong> With your permission, AllWheels
+          Location data. With your permission, AllWheels
           uses your device's location to record GPS ride routes while you're actively using the
           app. Location access is only used for this purpose and only while the app is in use.
         </p>
@@ -110,11 +110,11 @@ export function PrivacyPolicyPage() {
           data strictly on our behalf:
         </p>
         <p>
-          <strong className="text-white">Supabase</strong> — our backend, authentication, and
+          Supabase — our backend, authentication, and
           database provider, used to store account and app data.
         </p>
         <p>
-          <strong className="text-white">Resend</strong> — used to send transactional emails, like
+          Resend — used to send transactional emails, like
           confirming your email address when you sign up.
         </p>
         <p>
