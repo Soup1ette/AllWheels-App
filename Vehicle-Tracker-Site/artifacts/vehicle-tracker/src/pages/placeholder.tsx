@@ -3,15 +3,16 @@ import { Link } from 'wouter';
 import { ArrowLeft, Mail } from 'lucide-react';
 import logoSrc from '@assets/AW_app_logo_1785844987626.png';
 
-const LAST_UPDATED = 'August 6, 2026';
+const DEFAULT_LAST_UPDATED = 'August 6, 2026';
 const SUPPORT_EMAIL = 'allwheelsmobile@gmail.com';
 
 interface LegalLayoutProps {
   title: string;
+  lastUpdated?: string;
   children: ReactNode;
 }
 
-function LegalLayout({ title, children }: LegalLayoutProps) {
+function LegalLayout({ title, lastUpdated = DEFAULT_LAST_UPDATED, children }: LegalLayoutProps) {
   useEffect(() => {
     document.title = `${title} | AllWheels`;
   }, [title]);
@@ -37,7 +38,7 @@ function LegalLayout({ title, children }: LegalLayoutProps) {
       <div className="flex-1 px-6 py-16 md:py-20">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">{title}</h1>
-          <p className="text-sm text-muted-foreground mb-12">Last updated: {LAST_UPDATED}</p>
+          <p className="text-sm text-muted-foreground mb-12">Last updated: {lastUpdated}</p>
           <div className="prose-legal space-y-8 text-muted-foreground leading-relaxed">
             {children}
           </div>
@@ -58,7 +59,7 @@ function Section({ heading, children }: { heading: string; children: ReactNode }
 
 export function PrivacyPolicyPage() {
   return (
-    <LegalLayout title="Privacy Policy">
+    <LegalLayout title="Privacy Policy" lastUpdated="August 23, 2026">
       <p>
         AllWheels is currently in early beta testing, distributed to testers via Expo Go rather
         than the App Store or Google Play. This policy describes how the app currently handles
@@ -66,6 +67,11 @@ export function PrivacyPolicyPage() {
       </p>
 
       <Section heading="Information We Collect">
+        <p>
+          <strong className="text-white">Account information.</strong> To sign up, you provide an
+          email address and password. We use this to create and secure your account, and to send
+          you a confirmation email when you sign up.
+        </p>
         <p>
           <strong className="text-white">Vehicle & maintenance data.</strong> Information you
           enter into the app yourself — fuel logs, mileage, maintenance records, and any receipts
@@ -78,12 +84,14 @@ export function PrivacyPolicyPage() {
         </p>
       </Section>
 
-      <Section heading="No Accounts, Yet">
+      <Section heading="Accounts & Cloud Storage">
         <p>
-          AllWheels does not currently have user accounts or logins, and no cloud-hosted user
-          data store has been configured. Data you enter is associated with your device, not
-          with a personal account. This may change as the app develops toward a public release,
-          and this policy will be updated if it does.
+          AllWheels uses accounts (email and password) so you can sign in. Account
+          data is handled through Supabase, our backend and database provider — Supabase stores
+          your account credentials securely on our behalf, and we don't have access to your raw
+          password. As the app develops, vehicle and maintenance data may also be stored in this
+          same cloud infrastructure tied to your account, rather than only on your device; we'll
+          keep this section current as that evolves.
         </p>
         <p>
           AllWheels is not directed at children under 13, and we do not knowingly collect
@@ -91,15 +99,25 @@ export function PrivacyPolicyPage() {
         </p>
       </Section>
 
-      <Section heading="Third-Party Sharing">
+      <Section heading="Third-Party Service Providers">
         <p>
-          We do not share your data with third parties. AllWheels does not currently integrate
-          any advertising networks, analytics tools, or crash-reporting services.
+          We don't sell your data, and we don't use advertising networks or analytics/tracking
+          tools. We do rely on a small number of service providers to run AllWheels, who process
+          data strictly on our behalf:
         </p>
         <p>
-          During beta testing, the app is delivered through Expo Go, a third-party developer tool
-          made by Expo, which facilitates loading the app onto your device. Expo's own handling of
-          data related to that delivery process is governed by Expo's privacy policy, not ours.
+          <strong className="text-white">Supabase</strong> — our backend, authentication, and
+          database provider, used to store account and app data.
+        </p>
+        <p>
+          <strong className="text-white">Resend</strong> — used to send transactional emails, like
+          confirming your email address when you sign up.
+        </p>
+        <p>
+          During beta testing, the app is also delivered through Expo Go, a third-party developer
+          tool made by Expo, which facilitates loading the app onto your device. Expo's own
+          handling of data related to that delivery process is governed by Expo's privacy policy,
+          not ours.
         </p>
       </Section>
 
