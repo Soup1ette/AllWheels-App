@@ -125,6 +125,42 @@ export function PrivacyPolicyPage() {
         </p>
       </Section>
 
+      <Section heading="Your Rights & Choices">
+        <p>
+          Even though AllWheels is a small beta app that doesn't yet meet the size thresholds
+          that trigger formal obligations under laws like the CCPA or GDPR, we think these
+          choices matter regardless of legal requirement:
+        </p>
+        <p>
+          Export your data. From Settings, you can export a full copy of your vehicles,
+          maintenance records, rides, and fuel entries as a file at any time.
+        </p>
+        <p>
+          Delete your data. From Settings, you can permanently delete all your vehicles,
+          maintenance logs, rides, and fuel entries at any time — this cannot be undone. If you'd
+          like your account and any cloud backup deleted entirely, email us at{' '}
+          <a href={`mailto:${SUPPORT_EMAIL}`} className="text-primary hover:underline">
+            {SUPPORT_EMAIL}
+          </a>{' '}
+          and we'll take care of it.
+        </p>
+        <p>
+          Correct your data. Since almost everything in AllWheels is information you entered
+          yourself, you can edit or correct it directly in the app at any time.
+        </p>
+        <p>
+          We won't treat you any differently for exercising any of these choices.
+        </p>
+      </Section>
+
+      <Section heading="Data Retention">
+        <p>
+          Data stored locally on your device stays there until you delete it or uninstall the
+          app. If you use cloud backup, that copy stays in our Supabase-hosted database until you
+          delete it, overwrite it with a new backup, or ask us to delete your account.
+        </p>
+      </Section>
+
       <Section heading="Changes to This Policy">
         <p>
           As AllWheels moves from beta toward a public release — including if we introduce user
